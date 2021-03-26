@@ -1,0 +1,11 @@
+{
+  "name": "suit_classic",
+  "version": "1.0.0",
+  "description": "Make Website with VanillaJS and NodeJS",
+  "main": "index.js",
+  "author": "Hyungwon Jin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
