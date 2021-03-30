@@ -5,9 +5,9 @@ const LOGOUT = "/logout";
 const SEARCH = "/search";
 
 const USERS = "/users";
-const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile"
 const CHANGE_PASSWORD = "/change-password";
+const USER_DETAIL = "/:id";
 
 const IMAGES = "/images";
 const UPLOAD = "/upload";
@@ -27,7 +27,7 @@ const routes = {
     changePassword:CHANGE_PASSWORD,
     images: IMAGES,
     upload: UPLOAD,
-    iamgeDetail: IMAGE_DETAIL,
+    imageDetail: IMAGE_DETAIL,
     editImage:EDIT_IMAGE,
     deleteImage: DELETE_IMAGE
 }
