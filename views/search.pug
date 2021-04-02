@@ -1,5 +1,13 @@
 extends layouts/main
+include mixins/imageBlock
 
 block content
     .search__header 
         h3 Searching for #{searchingBy}
+    .search__videos 
+        each image in images 
+            +imageBlock({
+                title:image.title,
+                views:image.views ,
+                imageFile:image.imageFile
+            })

@@ -1,10 +1,13 @@
-export const home = (req, res) => res.render("home", { pageTitle: "Home" });
+import { images } from "../db";
 
+export const home = (req, res) => {
+    res.render("home", { pageTitle: "Home", images });
+}
 export const search = (req, res) => {
     const {
         query: { term: searchingBy }
     } = req;
-    res.render("search", { pageTitle: "Search", searchingBy });
+    res.render("search", { pageTitle: "Search", searchingBy, images });
 }
 
 export const upload = (req, res) => res.render("upload", { pageTitle: "Upload" });

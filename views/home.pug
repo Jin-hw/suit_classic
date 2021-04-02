@@ -1,4 +1,11 @@
 extends layouts/main
+include mixins/imageBlock
 
 block content
-    p Hellllo
+    .images 
+        each image in images 
+            +imageBlock({
+                title:image.title,
+                views:image.views ,
+                imageFile:image.imageFile
+            })
