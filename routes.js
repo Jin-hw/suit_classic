@@ -19,7 +19,7 @@ const routes = {
     home:HOME,
     join:JOIN,
     login:LOGIN,
-    logut:LOGOUT,
+    logout:LOGOUT,
     search:SEARCH,
     users:USERS,
     userDetail:USER_DETAIL,
