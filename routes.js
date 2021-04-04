@@ -22,12 +22,24 @@ const routes = {
     logout:LOGOUT,
     search:SEARCH,
     users:USERS,
-    userDetail:USER_DETAIL,
+    userDetail: id => {
+        if(id){
+            return `/users/${id}`;
+        }else {
+            return USER_DETAIL;
+        }
+    },
     editProfile: EDIT_PROFILE,
     changePassword:CHANGE_PASSWORD,
     images: IMAGES,
     upload: UPLOAD,
-    imageDetail: IMAGE_DETAIL,
+    imageDetail: id => {
+        if(id){
+            return `/images/${id}`;
+        } else {
+            return IMAGE_DETAIL;
+        }
+    },
     editImage:EDIT_IMAGE,
     deleteImage: DELETE_IMAGE
 }

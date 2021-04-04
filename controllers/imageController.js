@@ -1,4 +1,5 @@
 import { images } from "../db";
+import routes from "../routes";
 
 export const home = (req, res) => {
     res.render("home", { pageTitle: "Home", images });
@@ -10,7 +11,14 @@ export const search = (req, res) => {
     res.render("search", { pageTitle: "Search", searchingBy, images });
 }
 
-export const upload = (req, res) => res.render("upload", { pageTitle: "Upload" });
+export const getUpload = (req, res) => res.render("upload", { pageTitle: "Upload" });
+
+export const postUpload = (req, res) => {
+    const {
+        body: { file, title, description }
+    } = req;
+    res.redirect(routes.imageDetail(23452));
+}
 
 export const imageDetail = (req, res) => res.render("imageDetail", { pageTitle: "Image Detail" });
 

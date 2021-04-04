@@ -1,5 +1,6 @@
 mixin imageBlock(image = {})
     .imageBlock
-        img.imageBlock__thumbnail(src=image.imageFile)
-        h4.imageBlock__title=image.title
-        h6.imageBlock__views=image.views 
+        a(href=routes.imageDetail(image.id))
+            img.imageBlock__thumbnail(src=image.imageFile)
+            h4.imageBlock__title=image.title
+            h6.imageBlock__views=image.views 
