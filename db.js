@@ -1,46 +1,20 @@
-export const images = [
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+mongoose.connect(
+    process.env.MONGO_URL,
     {
-        id: 23452,
-        title: "This is someting I love",
-        views: 24,
-        imageFile: "https://img.nogizaka46.com/www/member/img/tsutsuiayame_prof.jpg",
-        creator:{
-            id:121212,
-            name:"Jin",
-            email:"hwjin@naver.com"
-        }
-    },
-    {
-        id: 23462,
-        title: "nice image",
-        views: 24,
-        imageFile: "https://img.nogizaka46.com/www/member/img/tsutsuiayame_prof.jpg",
-        creator:{
-            id:121212,
-            name:"Jin",
-            email:"hwjin@naver.com"
-        }
-    },
-    {
-        id: 345763,
-        title: "good image",
-        views: 24,
-        imageFile: "https://img.nogizaka46.com/www/member/img/tsutsuiayame_prof.jpg",
-        creator:{
-            id:121212,
-            name:"Jin",
-            email:"hwjin@naver.com"
-        }
-    },
-    {
-        id: 347383,
-        title: "wonderful image",
-        views: 24,
-        imageFile: "https://img.nogizaka46.com/www/member/img/tsutsuiayame_prof.jpg",
-        creator:{
-            id:121212,
-            name:"Jin",
-            email:"hwjin@naver.com"
-        }
+        useNewUrlParser: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true
     }
-]
+)
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log("✅ Connected to DB")
+const handleError = error => console.log(` Error on DB Connection:${error}`);
+
+db.once("open", handleOpen);
+db.on("error", handleError);
