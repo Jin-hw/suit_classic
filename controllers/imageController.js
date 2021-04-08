@@ -1,7 +1,14 @@
 import routes from "../routes";
+import Image from "../models/Image"
 
-export const home = (req, res) => {
-    res.render("home", { pageTitle: "Home", images });
+export const home = async (req, res) => {
+    try {
+        const image = await Image.find({});
+        res.render("home", { pageTitle: "Home", images });
+    }catch(error){
+        console.log(error);
+        res.render("home", { pageTitle: "Home", images: [] });
+    }
 }
 export const search = (req, res) => {
     const {
