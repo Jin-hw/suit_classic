@@ -3,7 +3,7 @@ import Image from "../models/Image"
 
 export const home = async (req, res) => {
     try {
-        const image = await Image.find({});
+        const images = await Image.find({});
         res.render("home", { pageTitle: "Home", images });
     }catch(error){
         console.log(error);
@@ -19,11 +19,18 @@ export const search = (req, res) => {
 
 export const getUpload = (req, res) => res.render("upload", { pageTitle: "Upload" });
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
     const {
-        body: { file, title, description }
+        body:{title, description},
+        file: {path}
     } = req;
-    res.redirect(routes.imageDetail(23452));
+    const newImage = await Image.create({
+        fileUrl:path,
+        title,
+        description
+    })
+    console.log(newImage);
+    res.redirect(routes.imageDetail(newImage.id));
 }
 
 export const imageDetail = (req, res) => res.render("imageDetail", { pageTitle: "Image Detail" });
